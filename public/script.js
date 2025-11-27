@@ -3,7 +3,7 @@ let lastResults = null;
 document.getElementById("searchBtn").addEventListener("click", searchUnicorns);
 
 async function searchUnicorns() {
-  let url = `http://localhost:3000/unicorns?`;
+  let url = `https://assignment-3-repo-unicorns-api-group-17.onrender.com/unicorns?`;
 
   if (unicornNameInput.value) url += `name=${unicornNameInput.value}&`;
 
@@ -49,7 +49,7 @@ function renderUnicorns(list) {
 
   let html = "";
 
-  list.forEach((u, index) => {
+  list.forEach((u) => {
     html += `
       <div style="padding: 15px 0;">
         <div style="font-size:20px; font-weight:bold;">${u.name}</div>
@@ -80,6 +80,7 @@ function renderUnicorns(list) {
   bigCard.innerHTML = html;
   container.appendChild(bigCard);
 }
+
 const checkboxes = [
   showLoves,
   showWeight,
@@ -88,6 +89,7 @@ const checkboxes = [
   showVaccinated,
   showExists,
 ];
+
 checkboxes.forEach((cb) => {
   cb.addEventListener("change", async () => {
     if (!lastResults || lastResults.length == 0) {
@@ -97,10 +99,12 @@ checkboxes.forEach((cb) => {
     renderUnicorns(lastResults);
   });
 });
+
 async function searchAll() {
-  const res = await fetch("http://localhost:3000/unicorns");
+  const res = await fetch(
+    "https://assignment-3-repo-unicorns-api-group-17.onrender.com/unicorns"
+  );
   const unicorns = await res.json();
   lastResults = unicorns;
   renderUnicorns(unicorns);
 }
-// window.addEventListener("DOMContentLoaded", searchAll);

@@ -1,5 +1,8 @@
+const cors = require("cors");
 const express = require("express");
+
 const app = express();
+app.use(cors());
 let unicorns = require("./data.js");
 app.use(express.json());
 app.use(express.static("public"));
