@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #f5f5f5;
+      }
+      .card {
+        background: #fffafe;
+        color: #ca2366;
+        padding: 25px;
+        margin-top: 40px !important;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-family: Arial;
+      }
+      .title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #ca2366;
+      }
+      .input-card {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      .card input,
+      .card select {
+        width: 280px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+      }
+      .choice-highlight {
+        background-color: #ff9ccc;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      .checkbox {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+      }
+      #searchBtn {
+        background: linear-gradient(135deg, #ff9ecb, #ff6fa7);
+        color: white;
+        border: none;
+        padding: 10px 26px;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        font-weight: bold;
+        box-shadow: 0 3px 8px rgba(255, 111, 167, 0.4);
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!--search section-->
+      <section class="card input-card">
+        <div>
+          Enter Unicorn Name:
+          <input type="text" placeholder="Unicorn Name" id="unicornNameInput" />
+        </div>
+        <div>
+          Enter Unicorn Loves:
+          <input
+            type="text"
+            placeholder="Unicorn Loves"
+            id="unicornLovesInput"
+          />
+        </div>
+        <div>
+          Enter Unicorn Weight Greater Than:
+          <input
+            type="number"
+            placeholder="Unicorn Weight"
+            id="unicornWeightInput"
+            min="-100"
+            max="1000"
+            step="1"
+          />
+        </div>
+        <div>
+          Enter Unicorn:
+          <select id="unicornGenderInput" class="choice-highlight">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+          </select>
+        </div>
+        <div>
+          Enter Unicorn Vampires Greater than:
+          <input
+            type="text"
+            placeholder="Unicorn Vampires"
+            id="unicornVampiresInput"
+          />
+        </div>
+        <div>
+          Enter Unicorn Vaccinated:
+          <select id="unicornVaccinatedInput" class="choice-highlight">
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
+        </div>
+        <div>
+          Enter Unicorn Vampires Exists:
+          <select id="unicornVampiresExistsInput" class="choice-highlight">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </div>
+        <button id="searchBtn">Search</button>
+      </section>
+      <!--check box section-->
+      <div class="checkbox">
+        <label><input type="checkbox" id="showLoves" /> Loves</label>
+        <label><input type="checkbox" id="showWeight" /> Weight</label>
+        <label><input type="checkbox" id="showGender" /> Gender</label>
+        <label><input type="checkbox" id="showVampires" /> Vampires</label>
+        <label><input type="checkbox" id="showVaccinated" /> Vaccinated</label>
+        <label><input type="checkbox" id="showExists" /> Vampires Exists</label>
+      </div>
+      <h2 id="totalCount"></h2>
+      <div id="resultDiv"></div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
