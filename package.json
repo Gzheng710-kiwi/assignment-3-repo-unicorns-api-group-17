@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/comp1537-f25/assignment-3-repo-unicorns-api-group-17#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "expresss": "^0.0.0"
   }
