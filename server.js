@@ -1,11 +1,13 @@
 const cors = require("cors");
 const express = require("express");
-
 const app = express();
+
 app.use(cors());
-let unicorns = require("./data.js");
 app.use(express.json());
 app.use(express.static("public"));
+
+let unicorns = require("./data.js");
+
 app.get(`/unicorns`, (req, res) => {
   try {
     const namePassedFromClient = req.query.name;
@@ -141,6 +143,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong." });
 });
 
-app.listen(3000, () => {
-  console.log(`everythin is good`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
